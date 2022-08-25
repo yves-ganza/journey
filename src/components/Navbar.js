@@ -7,7 +7,7 @@ export default function Navbar(){
             <ul className="w-full px-6 py-8 flex items-center justify-between">
                 <li>
                     <Link to='/'>
-                        <h1 className="text-3xl">Journey</h1>
+                        <h1 className="text-5xl font-bold">Journey</h1>
                     </Link>
                 </li>
                 <li>

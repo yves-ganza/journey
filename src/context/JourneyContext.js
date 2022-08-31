@@ -6,9 +6,15 @@ export const contextReducer = (state, action) => {
 
     switch (action.type) {
         case 'SET_ENTRIES':
-            return {entries: action.payload}
+            return {...state, entries: action.payload}
         case 'CREATE_ENTRY':
-            return {entries: [...state.entries, action.payload]}
+            return {...state, entries: [...state.entries, action.payload]}
+        case 'DEL_ENTRY':
+            return {...state, entries: state.entries.filter(entry => entry._id !== action.payload)}
+        case 'UPDATE_ENTRY':
+            return {...state, entries: action.payload}
+        case 'SET_CURRENT_ENTRY':
+            return {...state, currentEntry: action.payload}
         default:
             throw new Error('Action type not supported!')
     }
@@ -18,7 +24,8 @@ export const contextReducer = (state, action) => {
 export const JourneyContextProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(contextReducer, {
-        entries: []
+        entries: [],
+        currentEntry: null,
     })
 
     return(

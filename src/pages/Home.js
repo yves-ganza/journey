@@ -1,9 +1,10 @@
 import { useEffect } from "react"
+import Editor from "../components/Editor"
 import EntryContainer from "../components/EntryContainer"
 import EntryDetails from "../components/EntryDetails"
 import NewEntryForm from "../components/NewEntryForm"
 import useJourneyContext from "../hooks/useJourneyContext"
-import { registerServiceWorker } from "../utils"
+
 
 export default function Home(){
     const {state, dispatch} = useJourneyContext()
